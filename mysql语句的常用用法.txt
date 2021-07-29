@@ -1,0 +1,39 @@
+#查询表的所有字段
+SELECT * FROM `salaries`;
+#查询表的部分字段
+select emp_no,salary from salaries;
+
+#添加单条数据
+insert into salaries(emp_no,salary,from_date,to_date) values(10009,8000,"2021-7-27","2021-7-29");
+#添加多条数据
+insert into salaries(emp_no,salary,from_date,to_date) values
+(10008,7000,"2021-7-27","2021-7-29"),
+(10010,7000,"2021-7-27","2021-7-29"),
+(10011,7000,"2021-7-27","2021-7-29"),
+(10012,7000,"2021-7-27","2021-7-29"),
+(10013,7000,"2021-7-27","2021-7-29");
+
+#删除某条数据
+delete from salaries where emp_no=10013;
+
+#更新单条数据
+update salaries set salary=10000 where emp_no=10012;
+
+#更新数据的某个字段的值(不指定那一条记录)
+update salaries set salary=100;
+
+#升序和降序
+#升序排列
+select * from salaries order by emp_no asc;
+#降序排列
+select * from salaries order by emp_no desc;
+
+#模糊查询
+select * from employees where first_name like "%G%";
+#模糊查询左匹配(左开口%)
+select * from employees where first_name like "G%";
+#模糊查询右匹配(%右开口)
+select * from employees where first_name like "%i";
+
+#分组查询
+select emp_no from employees group by gender order by emp_no asc;
